@@ -1,9 +1,5 @@
 import { app, BrowserWindow } from 'electron';
-
-require('update-electron-app')({
-  repo: 'Nurify/Pure-app',
-  updateInterval: '5 minutes'
-})
+require('electron-titlebar')
 
 if (require('electron-squirrel-startup')) {
   app.quit();
@@ -13,17 +9,16 @@ let mainWindow;
 
 const createWindow = () => {
   mainWindow = new BrowserWindow({
-    width: 1708,
-    height: 945,
-    minWidth: 1708,
-    minHeight: 945,
+    width: 1500,
+    height: 950,
+    minWidth: 1500,
+    minHeight: 950,
     icon: `app.ico`,
-    frame: true
+    frame: false
   });
 
   mainWindow.loadURL(`file://${__dirname}/index.html`);
-  // mainWindow.loadURL('https://vk.com');
-  // mainWindow.removeMenu()
+  mainWindow.removeMenu()
   // mainWindow.webContents.openDevTools();
 
   mainWindow.on('closed', () => {
