@@ -1,5 +1,10 @@
 import { app, BrowserWindow } from 'electron';
 
+require('update-electron-app')({
+  repo: 'Nurify/Pure-app',
+  updateInterval: '5 minutes'
+})
+
 if (require('electron-squirrel-startup')) {
   app.quit();
 }
